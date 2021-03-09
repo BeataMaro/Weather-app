@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import sky from "../assets/dominik-schroder-unsplash.jpg";
 
 const StyledWrapper = styled.div`
   width: 100vw;
@@ -8,6 +9,10 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
+  background-image: url(${sky});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.3);
 `;
 

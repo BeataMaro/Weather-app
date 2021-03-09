@@ -26,7 +26,7 @@ const StyledCard = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: lightgrey;
+  background-color: #2e383a;
   transform-style: preserve-3d;
   transition: transform 0.3s ease-in-out;
 `;
@@ -49,6 +49,13 @@ const StyledFront = styled.div`
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  & > h1 {
+    color: crimson;
+  }
+  & > h2 {
+    color: yellow;
+    font-size: 2rem;
+  }
 `;
 
 const StyledBack = styled.div`
@@ -101,6 +108,7 @@ const WeatherCard = ({ weatherData, image }) => {
               {name}, {sys.country}
             </h1>
           )}
+          <h2>{main.temp.toFixed(1)}°C</h2>
           {image && <img src={image} alt='' />}
         </StyledFront>
         <StyledBack>
