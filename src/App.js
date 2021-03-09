@@ -56,6 +56,7 @@ const App = () => {
     <Container>
       <Header />
       <WeatherSearch api_call={api_call} />
+
       {weather && image && <WeatherCard weatherData={weather} image={image} />}
       {error && <ErrorMessage />}
 

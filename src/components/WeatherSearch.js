@@ -17,14 +17,13 @@ transform: scale(1.2);
 
 const StyledSearch = styled.div`
   display: flex;
+  align-items: center;
   width: 60%;
   margin: auto;
 `;
 
 const StyledInput = styled.input`
   padding: 20px;
-  width: 60%;
-  height: 25px;
   margin: 0 auto;
   border: none;
   border: 1px solid #ccc;
@@ -35,11 +34,15 @@ const StyledInput = styled.input`
     outline: none;
     border: 1.5px solid grey;
   }
+  @media (min-width: 768px) {
+    /* width: 60%; */
+    height: 25px;
+  }
 `;
 
 const StyledButton = styled.button`
-  width: 100px;
-  height: 70px;
+  width: 70px;
+  height: 50px;
   margin-left: 1em;
   padding: 5px 1px;
   outline: none;
@@ -55,6 +58,11 @@ const StyledButton = styled.button`
     animation: ${grow} 1s alternate;
     background-color: #ddd;
     color: #333;
+  }
+
+  @media (min-width: 768px) {
+    width: 100px;
+    height: 60px;
   }
 `;
 
