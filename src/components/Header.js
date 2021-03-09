@@ -3,12 +3,13 @@ import styled from "styled-components";
 import Clouds from "./Clouds";
 
 const StyledNav = styled.header`
-  height: 10%;
+  height: 20%;
 `;
 
 const StyledTitle = styled.h1`
   font-size: 2rem;
-  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 `;
 
 const Header = () => {

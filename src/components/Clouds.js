@@ -17,24 +17,25 @@ const swing = keyframes`
   transform: translate(100px, 125px);
 }
 50% {
-  /* transform: scaleX(.8); */
-  transform: translate(300px, 100px);
+  transform: scaleX(.8);
+  transform: translate(300px, 300px);
 }
 75% {
-  transform: translate(200px, -85px);
+  transform: translate(200px, -105px);
 }
 100% {
-  transform: translate(100px, 125px);
+  transform: translate(100px, 225px);
 }
 `;
 
-const StyledSVG = styled.img`
-  width: 270px;
-  animation: ${move} 9s infinite alternate;
-  margin-left: 1em;
-  transition: 0.5s ease-in;
+const StyledClouds = styled.div`
   opacity: 0.2;
-  z-index: -1;
+`;
+
+const StyledSVG = styled.img`
+  width: 20%;
+  animation: ${move} 9s infinite alternate;
+  transition: 0.5s ease;
 
   &:nth-child(1) {
     width: 250px;
@@ -42,7 +43,7 @@ const StyledSVG = styled.img`
   }
   &:nth-child(2) {
     width: 220px;
-    animation: ${swing} infinite 9s;
+    animation: ${swing} infinite alternate 9s;
   }
   &:nth-child(3) {
     width: 200px;
@@ -52,12 +53,12 @@ const StyledSVG = styled.img`
 
 const Clouds = () => {
   return (
-    <>
+    <StyledClouds>
       <StyledSVG src={cloud} />
       <StyledSVG src={cloud} />
       <StyledSVG src={cloud} />
       <StyledSVG src={cloud} />
-    </>
+    </StyledClouds>
   );
 };
 

@@ -7,11 +7,11 @@ const StyledFooter = styled.footer`
   padding: 1em 0;
   text-align: center;
   font-size: 0.8rem;
-  background-color: #333;
+  background-color: #002550;
   color: #bbb;
 
   & a {
-    color: crimson;
+    color: orangered;
   }
 `;
 

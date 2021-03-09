@@ -20,35 +20,48 @@ const shake = keyframes`
   }
 `;
 
-const StyledCard = styled.div`
+export const StyledCard = styled.div`
   border-radius: 20px;
   box-shadow: 1px 0.5px 15px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: #2e383a;
+  background-color: #ddd;
   transform-style: preserve-3d;
   transition: transform 0.3s ease-in-out;
 `;
 
-const StyledCardContainer = styled.div`
+export const StyledCardContainer = styled.div`
   align-self: center;
   position: relative;
   background: transparent;
   width: 350px;
-  height: 500px;
-  padding: 2em;
-  margin: 2em;
+  min-height: 600px;
+  /* padding: 2em; */
+  /* margin: 2em; */
   perspective: 1000px;
+  overflow: hidden;
 
   &:hover ${StyledCard} {
     transform: rotateY(180deg);
   }
 `;
-const StyledFront = styled.div`
+
+const StyledCardHeader = styled.div`
+  background-color: orange;
+`;
+export const StyledFront = styled.div`
   position: absolute;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  /* background-color: purple; */
+
+  & img {
+    object-fit: contain;
+  }
+
   & > h1 {
     color: crimson;
   }
@@ -56,9 +69,13 @@ const StyledFront = styled.div`
     color: yellow;
     font-size: 2rem;
   }
+  & > h3 {
+    color: lightgray;
+    font-weight: 100;
+  }
 `;
 
-const StyledBack = styled.div`
+export const StyledBack = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -87,9 +104,10 @@ const StyledButton = styled.button`
   }
 `;
 
-const WeatherCard = ({ weatherData, image }) => {
-  let [open, toggle] = useState(true);
+const WeatherCard = ({ weatherData, image, description }) => {
+  let [open, toggle] = useState(false);
   const { name, sys, weather = [], main } = weatherData;
+  const weatherIcon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
   const toggleDetails = () => {
     if (weather && sys) {
@@ -103,17 +121,22 @@ const WeatherCard = ({ weatherData, image }) => {
     <StyledCardContainer>
       <StyledCard>
         <StyledFront>
-          {name && (
-            <h1>
-              {name}, {sys.country}
-            </h1>
-          )}
-          <h2>{main.temp.toFixed(1)}°C</h2>
+          <StyledCardHeader>
+            {name && (
+              <h1>
+                {name}, {sys.country}
+              </h1>
+            )}
+            <div>
+              <h2>{main.temp.toFixed()}°C</h2>{" "}
+              {weatherIcon && <img src={weatherIcon} alt='weather-icon' />}
+            </div>
+          </StyledCardHeader>
           {image && <img src={image} alt='' />}
         </StyledFront>
         <StyledBack>
-          {main && <p>{weather[0].description}</p>}
-
+          <h2>{name}</h2>
+          {description && <p>{description}</p>}
           {open && <WeatherDatails main={main} weather={weather} />}
           {!open && (
             <StyledButton onClick={toggleDetails}>&#129043;</StyledButton>
