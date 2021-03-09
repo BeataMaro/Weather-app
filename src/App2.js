@@ -15,40 +15,41 @@ const App = () => {
   let [image, setImage] = useState("");
   let [error, setError] = useState(false);
 
-  // let [count, setCount] = useState(600);
+  let [count, setCount] = useState(600);
+  let [place, setPlace] = useState("");
 
-  // useEffect(() => {
-  //   setImage(`https://source.unsplash.com/collection/164639/600x${count}`);
-  // }, [count]);
+  useEffect(() => {
+    setImage(`https://source.unsplash.com/collection/164639/600x${count}`);
+
+    // setImage(`https://api.unsplash.com/search/photos?page=1&query=${place}`);
+
+    // console.log(`useEffect ${image} ${place}`);
+  }, [count]);
 
   const api_call = async (e) => {
     e.preventDefault();
 
     let location = e.target.elements.location.value;
     if (location) {
-      //OpenWeatherMap API
       const API_KEY = "704dc5526e3c3be52b1e69ad1e7c1ad9";
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`;
       const request = await fetch(url);
       const response = await request.json();
       setWeather(response);
+      setCount(count + 1);
+      console.log(`count: ${count}`);
+      setPlace(location);
 
-      //Unsplash API
-      // setCount(count + 1);
-      const API_KEY_UNSPLASH = "eyHVNRMWZ6iRzKziR8dKv22SFkh4FqV2YLZhLxcSjjs";
-      const url_unsplash = `https://api.unsplash.com/search/photos?page=3&query=${location}&client_id=${API_KEY_UNSPLASH}`;
-      const request_unsplash = await fetch(url_unsplash);
-      const response_unsplash = await request_unsplash.json();
-      const img_unsplash = response_unsplash.results[0].urls.small;
-      setImage(img_unsplash);
+      // setImage("https://source.unsplash.com/collection/4299432");
+      // setImage(
+      //   `https://api.unsplash.com/search/photos?page=1&query=${location}`
+      // );
       setError(false);
+
       e.target.elements.location.value = "";
     } else {
       setWeather(null);
       setError(true);
-      setImage(
-        "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
-      );
     }
   };
 
