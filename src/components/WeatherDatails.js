@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledDetails = styled.div`
-  color: lightgrey;
+  color: #333;
 `;
 
 const WeatherData = ({ main, weather }) => {
@@ -10,7 +10,7 @@ const WeatherData = ({ main, weather }) => {
 
   return (
     <StyledDetails>
-      <p>temp: {temp.toFixed()}°C</p>
+      <h2>temp: {temp.toFixed()}°C</h2>
       <p>Pressure: {pressure}</p>
       {main && <p>{weather[0].description}</p>}
     </StyledDetails>

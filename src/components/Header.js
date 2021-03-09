@@ -8,14 +8,14 @@ const StyledNav = styled.header`
 
 const StyledTitle = styled.h1`
   font-size: 2rem;
+  font-family: "Dancing Script", cursive;
   letter-spacing: 2px;
-  text-transform: uppercase;
 `;
 
 const Header = () => {
   return (
     <StyledNav>
-      <StyledTitle>On Cloud Nine</StyledTitle>
+      <StyledTitle>On Cloud Nine - the Weather App</StyledTitle>
       <Clouds />
     </StyledNav>
   );

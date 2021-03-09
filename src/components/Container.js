@@ -13,7 +13,12 @@ const StyledWrapper = styled.div`
   justify-content: space-around;
 
   background-color: black;
-  background-image: url(${sky});
+  background: linear-gradient(
+      90deg,
+      rgba(9, 121, 112, 0.1) 0%,
+      rgba(124, 167, 167, 0.8) 50%
+    ),
+    url(${sky});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;

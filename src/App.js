@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 
 import ErrorCard from "./components/ErrorCard";
 
+import { roll } from "./utils/roll";
+
 const App = () => {
   let [weather, setWeather] = useState(null);
   let [image, setImage] = useState("");
@@ -21,8 +23,8 @@ const App = () => {
 
     let location = e.target.elements.location.value;
     if (location) {
+      //OpenWeatherMap API
       try {
-        //OpenWeatherMap API
         const API_KEY = "704dc5526e3c3be52b1e69ad1e7c1ad9";
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`;
         const request = await fetch(url);
@@ -33,16 +35,16 @@ const App = () => {
         const url_unsplash = `https://api.unsplash.com/search/photos?page=3&query=${location}&client_id=${API_KEY_UNSPLASH}`;
         const request_unsplash = await fetch(url_unsplash);
         const response_unsplash = await request_unsplash.json();
-        const img_unsplash = response_unsplash.results[0].urls.small;
-        const img_description = response_unsplash.results[0].description;
+        const arrLength = response_unsplash.results.length;
+        let index = roll(0, arrLength, false);
+        const img_unsplash = response_unsplash.results[index].urls.small;
+        const img_description = response_unsplash.results[index].description;
         setImage(img_unsplash);
         setDescription(img_description);
         setError(false);
         e.target.elements.location.value = "";
       } catch (e) {
-        console.log("Nie ma!");
         console.log(`error: ${e.message}`);
-        setWeather(null);
         setError(true);
         setImage(
           "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
@@ -51,6 +53,7 @@ const App = () => {
       }
     } else {
       setError(true);
+      setWeather(null);
     }
   };
 
@@ -66,7 +69,7 @@ const App = () => {
           description={description}
         />
       )}
-      {error && <ErrorCard image={image} />}
+      {error && !weather && <ErrorCard image={image} />}
 
       <Footer />
     </Container>

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeatherDatails from "./WeatherDatails";
 import styled, { keyframes } from "styled-components";
+
+import { roll } from "../utils/roll";
 
 const shake = keyframes`
   10%, 90% {
@@ -36,9 +38,8 @@ export const StyledCardContainer = styled.div`
   position: relative;
   background: transparent;
   width: 350px;
-  min-height: 600px;
-  /* padding: 2em; */
-  /* margin: 2em; */
+  min-height: 500px;
+  margin: 2em;
   perspective: 1000px;
   overflow: hidden;
 
@@ -56,12 +57,10 @@ export const StyledFront = styled.div`
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /* background-color: purple; */
 
   & img {
-    object-fit: contain;
+    max-height: 100%;
   }
-
   & > h1 {
     color: crimson;
   }
@@ -84,6 +83,11 @@ export const StyledBack = styled.div`
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: rotateY(180deg);
+
+  & p {
+    width: 80%;
+    line-height: 1.8;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -106,8 +110,25 @@ const StyledButton = styled.button`
 
 const WeatherCard = ({ weatherData, image, description }) => {
   let [open, toggle] = useState(false);
+  // let [random, setRandom] = useState(null);
   const { name, sys, weather = [], main } = weatherData;
   const weatherIcon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
+
+  let size = roll(400, 650, false);
+  let randomImage = `https://source.unsplash.com/random/600x${size}`;
+  let picture = null;
+
+  useEffect(() => {
+    const findImage = () => {
+      picture =
+        weatherData &&
+        image ===
+          "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
+          ? randomImage
+          : image;
+    };
+    findImage();
+  }, []);
 
   const toggleDetails = () => {
     if (weather && sys) {
@@ -133,6 +154,7 @@ const WeatherCard = ({ weatherData, image, description }) => {
             </div>
           </StyledCardHeader>
           {image && <img src={image} alt='' />}
+          {!image && <img src={picture} alt='' />}
         </StyledFront>
         <StyledBack>
           <h2>{name}</h2>
