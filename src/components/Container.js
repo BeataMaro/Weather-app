@@ -15,8 +15,8 @@ const StyledWrapper = styled.div`
   background-color: black;
   background: linear-gradient(
       90deg,
-      rgba(9, 121, 112, 0.1) 0%,
-      rgba(124, 167, 167, 0.8) 50%
+      rgba(9, 121, 112, 0.3) 0%,
+      rgba(124, 167, 167, 0.5) 20%
     ),
     url(${sky});
   background-repeat: no-repeat;

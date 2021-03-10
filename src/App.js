@@ -38,6 +38,7 @@ const App = () => {
         let index = roll(0, arrLength, false);
         const img_unsplash = response_unsplash.results[index].urls.small;
         const img_description = response_unsplash.results[index].description;
+
         setImage(img_unsplash);
         setDescription(img_description);
         setError(false);
@@ -46,7 +47,9 @@ const App = () => {
         console.log(`error: ${e.message}`);
         setError(true);
         setImage(
-          "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
+          // "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
+
+          "https://source.unsplash.com/random"
         );
         setDescription("");
       }

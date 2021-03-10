@@ -9,7 +9,10 @@ const StyledNav = styled.header`
 const StyledTitle = styled.h1`
   font-size: 2rem;
   font-family: "Dancing Script", cursive;
-  letter-spacing: 2px;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
 const Header = () => {

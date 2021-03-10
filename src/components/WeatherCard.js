@@ -23,43 +23,52 @@ const shake = keyframes`
 `;
 
 export const StyledCard = styled.div`
-  border-radius: 20px;
+  position: relative;
+  border-radius: 40px;
   box-shadow: 1px 0.5px 15px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100%;
   text-align: center;
   background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform-style: preserve-3d;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.25s ease;
+  cursor: pointer;
 `;
 
 export const StyledCardContainer = styled.div`
   align-self: center;
-  position: relative;
   background: transparent;
+  border-radius: 40px;
   width: 350px;
   min-height: 500px;
-  margin: 2em;
   perspective: 1000px;
   overflow: hidden;
 
   &:hover ${StyledCard} {
     transform: rotateY(180deg);
+    border-radius: 40px;
   }
 `;
 
 const StyledCardHeader = styled.div`
   background-color: orange;
+  padding: 0.3em;
+  min-height: 30%;
 `;
 export const StyledFront = styled.div`
   position: absolute;
+  background: white;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  border-radius: 20px;
 
   & img {
-    max-height: 100%;
+    max-height: 70%;
   }
   & > h1 {
     color: crimson;
@@ -109,26 +118,24 @@ const StyledButton = styled.button`
 `;
 
 const WeatherCard = ({ weatherData, image, description }) => {
-  let [open, toggle] = useState(false);
-  // let [random, setRandom] = useState(null);
-  const { name, sys, weather = [], main } = weatherData;
+  let [open, toggle] = useState(true);
+  const { name, sys, weather = [{ icon: "" }], main } = weatherData || [];
   const weatherIcon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
   let size = roll(400, 650, false);
   let randomImage = `https://source.unsplash.com/random/600x${size}`;
-  let picture = null;
 
   useEffect(() => {
     const findImage = () => {
-      picture =
-        weatherData &&
-        image ===
-          "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
-          ? randomImage
-          : image;
+      weatherData &&
+      image ===
+        "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
+        ? (image = randomImage)
+        : (image = image);
     };
     findImage();
-  }, []);
+    console.log(image);
+  }, [image]);
 
   const toggleDetails = () => {
     if (weather && sys) {
@@ -143,21 +150,24 @@ const WeatherCard = ({ weatherData, image, description }) => {
       <StyledCard>
         <StyledFront>
           <StyledCardHeader>
-            {name && (
-              <h1>
-                {name}, {sys.country}
-              </h1>
-            )}
+            {name && <h1>{name}</h1>}
             <div>
-              <h2>{main.temp.toFixed()}°C</h2>{" "}
-              {weatherIcon && <img src={weatherIcon} alt='weather-icon' />}
+              {main && <h2>{main.temp.toFixed()}°C</h2>}{" "}
+              {weather[0].icon === "" && <h3>Are you sure?</h3>}
+              {weather[0].icon !== "" && (
+                <img src={weatherIcon} alt='weather-icon' />
+              )}
             </div>
           </StyledCardHeader>
           {image && <img src={image} alt='' />}
-          {!image && <img src={picture} alt='' />}
+          {/* {!image && <img src={image} alt='' />} */}
         </StyledFront>
         <StyledBack>
-          <h2>{name}</h2>
+          {name && sys && (
+            <h2>
+              {name}, {sys.country}
+            </h2>
+          )}
           {description && <p>{description}</p>}
           {open && <WeatherDatails main={main} weather={weather} />}
           {!open && (

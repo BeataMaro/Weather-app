@@ -19,13 +19,17 @@ const StyledSearch = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 80%;
   margin: auto;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 const StyledInput = styled.input`
   padding: 20px;
-  margin: 0 auto;
+  margin: 1em auto;
   border: 1px solid #ccc;
   border-radius: 10px;
   letter-spacing: 4px;
@@ -43,7 +47,7 @@ const StyledInput = styled.input`
 const StyledButton = styled.button`
   width: 70px;
   height: 50px;
-  margin-left: 1em;
+  margin-left: 0.5em;
   padding: 5px 1px;
   outline: none;
   border: none;
@@ -64,6 +68,7 @@ const StyledButton = styled.button`
   @media (min-width: 768px) {
     width: 100px;
     height: 60px;
+    margin-left: 1em;
   }
 `;
 

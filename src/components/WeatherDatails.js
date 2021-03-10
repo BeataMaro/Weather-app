@@ -6,12 +6,12 @@ const StyledDetails = styled.div`
 `;
 
 const WeatherData = ({ main, weather }) => {
-  const { temp, pressure } = main;
+  const { temp, pressure } = main || [];
 
   return (
     <StyledDetails>
-      <h2>temp: {temp.toFixed()}°C</h2>
-      <p>Pressure: {pressure}</p>
+      {temp && <h2>temp: {temp.toFixed()}°C</h2>}
+      {pressure && <p>Pressure: {pressure}</p>}
       {main && <p>{weather[0].description}</p>}
     </StyledDetails>
   );
