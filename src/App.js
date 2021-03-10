@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import env from "react-dotenv";
 
 //Components
 import Container from "./components/Container.js";
@@ -25,14 +26,12 @@ const App = () => {
     if (location) {
       //OpenWeatherMap API
       try {
-        const API_KEY = "704dc5526e3c3be52b1e69ad1e7c1ad9";
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${env.API_KEY}&units=metric`;
         const request = await fetch(url);
         const response = await request.json();
         setWeather(response);
         //Unsplash API
-        const API_KEY_UNSPLASH = "eyHVNRMWZ6iRzKziR8dKv22SFkh4FqV2YLZhLxcSjjs";
-        const url_unsplash = `https://api.unsplash.com/search/photos?page=3&query=${location}&client_id=${API_KEY_UNSPLASH}`;
+        const url_unsplash = `https://api.unsplash.com/search/photos?page=3&query=${location}&client_id=${env.ACCESS_KEY}`;
         const request_unsplash = await fetch(url_unsplash);
         const response_unsplash = await request_unsplash.json();
         const arrLength = response_unsplash.results.length;
@@ -70,7 +69,8 @@ const App = () => {
         />
       )}
       {error && !weather && <ErrorCard image={image} />}
-
+      {/* <div>{env.API_KEY}</div> */}
+      {/* <div>{window.env.API_KEY}</div> */}
       <Footer />
     </Container>
   );
