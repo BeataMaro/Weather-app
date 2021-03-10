@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import WeatherDatails from "./WeatherDatails";
 import styled, { keyframes } from "styled-components";
-
-import { roll } from "../utils/roll";
 
 const shake = keyframes`
   10%, 90% {
@@ -36,6 +34,7 @@ export const StyledCard = styled.div`
   transform-style: preserve-3d;
   transition: transform 0.25s ease;
   cursor: pointer;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
 `;
 
 export const StyledCardContainer = styled.div`
@@ -95,7 +94,7 @@ export const StyledBack = styled.div`
 
   & p {
     width: 80%;
-    line-height: 1.8;
+    line-height: 1.6;
   }
 `;
 
@@ -121,21 +120,8 @@ const WeatherCard = ({ weatherData, image, description }) => {
   let [open, toggle] = useState(true);
   const { name, sys, weather = [{ icon: "" }], main } = weatherData || [];
   const weatherIcon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
-
-  let size = roll(400, 650, false);
-  let randomImage = `https://source.unsplash.com/random/600x${size}`;
-
-  useEffect(() => {
-    const findImage = () => {
-      weatherData &&
-      image ===
-        "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
-        ? (image = randomImage)
-        : (image = image);
-    };
-    findImage();
-    console.log(image);
-  }, [image]);
+  const lostImg =
+    "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80";
 
   const toggleDetails = () => {
     if (weather && sys) {
@@ -152,15 +138,14 @@ const WeatherCard = ({ weatherData, image, description }) => {
           <StyledCardHeader>
             {name && <h1>{name}</h1>}
             <div>
-              {main && <h2>{main.temp.toFixed()}°C</h2>}{" "}
-              {weather[0].icon === "" && <h3>Are you sure?</h3>}
+              {main && <h2>{main.temp.toFixed()}°C</h2>}
+              {weather[0].icon === "" && <h3>Try searching again</h3>}
               {weather[0].icon !== "" && (
                 <img src={weatherIcon} alt='weather-icon' />
               )}
             </div>
           </StyledCardHeader>
           {image && <img src={image} alt='' />}
-          {/* {!image && <img src={image} alt='' />} */}
         </StyledFront>
         <StyledBack>
           {name && sys && (
@@ -170,12 +155,14 @@ const WeatherCard = ({ weatherData, image, description }) => {
           )}
           {description && <p>{description}</p>}
           {open && <WeatherDatails main={main} weather={weather} />}
-          {!open && (
+          {!open && main && (
             <StyledButton onClick={toggleDetails}>&#129043;</StyledButton>
           )}
-          {open && (
+          {open && main && (
             <StyledButton onClick={toggleDetails}>&#129041;</StyledButton>
           )}
+
+          {weather[0].icon === "" && <img src={lostImg} />}
         </StyledBack>
       </StyledCard>
     </StyledCardContainer>

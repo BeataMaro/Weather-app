@@ -29,7 +29,7 @@ const swing = keyframes`
 `;
 
 const StyledClouds = styled.div`
-  opacity: 0.1;
+  opacity: 0.3;
 `;
 
 const StyledSVG = styled.img`

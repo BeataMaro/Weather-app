@@ -46,11 +46,7 @@ const App = () => {
       } catch (e) {
         console.log(`error: ${e.message}`);
         setError(true);
-        setImage(
-          // "https://images.unsplash.com/photo-1495249346844-83e18c90a511?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1267&q=80"
-
-          "https://source.unsplash.com/random"
-        );
+        setImage("https://source.unsplash.com/random");
         setDescription("");
       }
     } else {
@@ -72,8 +68,6 @@ const App = () => {
         />
       )}
       {error && !weather && <ErrorCard image={image} />}
-      {/* <div>{env.API_KEY}</div> */}
-      {/* <div>{window.env.API_KEY}</div> */}
       <Footer />
     </Container>
   );

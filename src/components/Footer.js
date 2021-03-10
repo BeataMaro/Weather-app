@@ -4,20 +4,22 @@ import styled from "styled-components";
 const StyledFooter = styled.footer`
   margin-top: auto;
   width: 100%;
-  padding: 1em 0;
+  padding: 1em;
   text-align: center;
   font-size: 0.8rem;
-  background-color: #123e2f;
-  color: #bbb;
+  background-color: #01130d;
+  color: #484c47;
+  letter-spacing: 0.5px;
 
   & a {
-    color: orangered;
+    color: var(--primary);
   }
 `;
 
 const Footer = () => {
   return (
     <StyledFooter>
+      <p>&copy; Copyrights 2021</p>
       Icons made by{" "}
       <span>
         <a href='https://www.freepik.com' title='Freepik'>
@@ -30,8 +32,9 @@ const Footer = () => {
           www.flaticon.com
         </a>
       </span>
-      <p>
-        Photo by{" "}
+      <span>
+        {" "}
+        | Photo by{" "}
         <span>
           <a href='https://unsplash.com/@wirhabenzeit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>
             Dominik Schröder
@@ -43,7 +46,7 @@ const Footer = () => {
             Unsplash
           </a>
         </span>
-      </p>
+      </span>
     </StyledFooter>
   );
 };
