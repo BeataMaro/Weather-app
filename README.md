@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # Weather-app
-=======
+
 ## Demo: [On Cloud Nine - the weather app](https://on-cloud-nine.herokuapp.com/)
 
 
