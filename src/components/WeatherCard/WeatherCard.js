@@ -7,7 +7,7 @@ import {
   StyledCardHeader,
   StyledBack,
 } from "./StyledWeatherCard";
-import WeatherDatails from "../WeatherDetails/WeatherDatails";
+import WeatherDetails from "../WeatherDetails/WeatherDetails";
 
 const WeatherCard = ({ weatherData, image, description }) => {
   let [open, toggle] = useState(true);
@@ -47,7 +47,7 @@ const WeatherCard = ({ weatherData, image, description }) => {
             </h2>
           )}
           {description && <p>{description}</p>}
-          {open && <WeatherDatails main={main} weather={weather} />}
+          {open && <WeatherDetails main={main} weather={weather} />}
           {!open && main && (
             <StyledButton onClick={toggleDetails}>&#129043;</StyledButton>
           )}
