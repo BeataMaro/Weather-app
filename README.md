@@ -3,8 +3,6 @@
 
 ## Demo: [On Cloud Nine - the weather app](https://on-cloud-nine.herokuapp.com/)
 
-## Demo: <a href="https://on-cloud-nine.herokuapp.com/" target="_blank">On Cloud Nine</a>
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
