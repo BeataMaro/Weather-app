@@ -6,12 +6,10 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   max-width: 100%;
-
   width: 100vw;
-  height: 100vh;
+  height: 1000px;
   flex-direction: column;
-  justify-content: space-around;
-
+  justify-content: space-between;
   background-color: black;
   background: linear-gradient(
       90deg,
@@ -24,9 +22,6 @@ const StyledWrapper = styled.div`
   background-size: cover;
   background-position: bottom;
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.3);
-
-  @media (min-width: 1024px) {
-  }
 `;
 
 const Container = (props) => {

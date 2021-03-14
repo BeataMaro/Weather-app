@@ -1,20 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const StyledFooter = styled.footer`
-  margin-top: auto;
-  width: 100%;
-  padding: 1em;
-  text-align: center;
-  font-size: 0.8rem;
-  background-color: #01130d;
-  color: #484c47;
-  letter-spacing: 0.5px;
-
-  & a {
-    color: var(--primary);
-  }
-`;
+import { StyledFooter } from "./StyledFooter";
 
 const Footer = () => {
   return (
@@ -22,13 +7,13 @@ const Footer = () => {
       <p>&copy; Copyrights 2021</p>
       Icons made by{" "}
       <span>
-        <a href='https://www.freepik.com' title='Freepik'>
+        <a href='https://www.freepik.com' title='Freepik' target='_blank'>
           Freepik
         </a>
       </span>{" "}
       |{" "}
       <span>
-        <a href='https://www.flaticon.com/' title='Flaticon'>
+        <a href='https://www.flaticon.com/' title='Flaticon' target='_blank'>
           www.flaticon.com
         </a>
       </span>

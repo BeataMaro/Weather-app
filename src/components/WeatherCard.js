@@ -40,9 +40,10 @@ export const StyledCard = styled.div`
 export const StyledCardContainer = styled.div`
   align-self: center;
   background: transparent;
+  margin: 2em 0;
   border-radius: 40px;
   width: 350px;
-  min-height: 500px;
+  min-height: 600px;
   perspective: 1000px;
   overflow: hidden;
 
@@ -59,7 +60,7 @@ const StyledCardHeader = styled.div`
 `;
 export const StyledFront = styled.div`
   position: absolute;
-  background: white;
+  background-color: pink;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -67,7 +68,7 @@ export const StyledFront = styled.div`
   border-radius: 20px;
 
   & img {
-    max-height: 70%;
+    max-height: 80%;
   }
   & > h1 {
     color: crimson;

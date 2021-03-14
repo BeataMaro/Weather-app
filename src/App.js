@@ -7,9 +7,9 @@ import Container from "./components/Container.js";
 import Header from "./components/Header";
 import WeatherSearch from "./components/WeatherSearch";
 import WeatherCard from "./components/WeatherCard";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 
-import ErrorCard from "./components/ErrorCard";
+import ErrorCard from "./components/ErrorCard/ErrorCard";
 
 import { roll } from "./utils/roll";
 

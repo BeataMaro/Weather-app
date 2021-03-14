@@ -8,6 +8,7 @@ body {
   font-family: "Roboto", sans-serif;
   text-align: center;
   overflow-x: hidden;
+  background-color: skyblue;
 }
 
 img {
