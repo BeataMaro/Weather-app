@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+
 import {
   StyledCardContainer,
   StyledCard,
   StyledFront,
   StyledBack,
-} from "./WeatherCard";
+} from "../WeatherCard/StyledWeatherCard";
 
 const StyledErrorContainer = styled(StyledCardContainer)`
   margin: auto;

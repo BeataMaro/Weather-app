@@ -1,7 +1,4 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearchLocation } from "@fortawesome/free-solid-svg-icons";
 
 const grow = keyframes`
 0% {
@@ -15,7 +12,7 @@ transform: scale(1.2);
 }
 `;
 
-const StyledSearch = styled.div`
+export const StyledSearch = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +24,7 @@ const StyledSearch = styled.div`
   }
 `;
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   padding: 20px;
   margin: 1em auto;
   border: 1px solid #ccc;
@@ -44,7 +41,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   width: 70px;
   height: 50px;
   margin-left: 0.5em;
@@ -71,20 +68,3 @@ const StyledButton = styled.button`
     margin-left: 1em;
   }
 `;
-
-const WeatherSearch = ({ api_call }) => {
-  console.log(api_call);
-
-  return (
-    <form onSubmit={api_call}>
-      <StyledSearch>
-        <StyledInput type='text' name='location' placeholder='location' />
-        <StyledButton>
-          <FontAwesomeIcon icon={faSearchLocation} />
-        </StyledButton>
-      </StyledSearch>
-    </form>
-  );
-};
-
-export default WeatherSearch;

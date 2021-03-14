@@ -1,6 +1,4 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
-import cloud from "../assets/clouds.svg";
 
 const move = keyframes`
   0% {
@@ -28,11 +26,11 @@ const swing = keyframes`
 }
 `;
 
-const StyledClouds = styled.div`
+export const StyledClouds = styled.div`
   opacity: 0.3;
 `;
 
-const StyledSVG = styled.img`
+export const StyledSVG = styled.img`
   width: 20%;
   animation: ${move} 9s infinite alternate;
   transition: 0.5s ease;
@@ -50,16 +48,3 @@ const StyledSVG = styled.img`
     animation: ${move} 3s infinite alternate;
   }
 `;
-
-const Clouds = () => {
-  return (
-    <StyledClouds>
-      <StyledSVG src={cloud} />
-      <StyledSVG src={cloud} />
-      <StyledSVG src={cloud} />
-      <StyledSVG src={cloud} />
-    </StyledClouds>
-  );
-};
-
-export default Clouds;
