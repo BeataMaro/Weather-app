@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 const move = keyframes`
   0% {
-    transform: translate(-500px, 10%);
+    transform: translate(-50%, -40%);
   }
   100% {
     transform: translate(100%, 0);
@@ -11,18 +11,17 @@ const move = keyframes`
 
 const swing = keyframes`
 0% {
-  /* transform: scaleX(1.8); */
-  transform: translate(100px, 125px);
+  transform: translate(20%, 40%);
 }
 50% {
-  transform: scaleX(.8);
-  transform: translate(300px, 300px);
+
+  transform: translate(-10%, 60%);
 }
 75% {
-  transform: translate(200px, -105px);
+  transform: translate(5%, 5%);
 }
 100% {
-  transform: translate(100px, 225px);
+  transform: translate(30%, 30%);
 }
 `;
 
@@ -32,19 +31,30 @@ export const StyledClouds = styled.div`
 
 export const StyledSVG = styled.img`
   width: 20%;
-  animation: ${move} 9s infinite alternate;
+  animation: ${move} 4s infinite alternate;
   transition: 0.5s ease;
 
   &:nth-child(1) {
-    width: 250px;
+    width: 25%;
     animation: ${move} 5s infinite alternate;
   }
   &:nth-child(2) {
-    width: 220px;
+    width: 20%;
     animation: ${swing} infinite alternate 9s;
   }
   &:nth-child(3) {
-    width: 200px;
+    width: 10%;
     animation: ${move} 3s infinite alternate;
+  }
+  @media (min-width: 1200px) {
+    &:nth-child(1) {
+      width: 15%;
+    }
+    &:nth-child(2) {
+      width: 10%;
+    }
+    &:nth-child(3) {
+      width: 12%;
+    }
   }
 `;

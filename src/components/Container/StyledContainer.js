@@ -20,4 +20,5 @@ export const StyledWrapper = styled.div`
   background-size: cover;
   background-position: bottom;
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.3);
+  overflow-x: hidden;
 `;

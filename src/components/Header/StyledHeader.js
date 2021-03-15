@@ -8,11 +8,11 @@ export const StyledNav = styled.header`
 
 export const StyledTitle = styled.div`
   align-self: center;
-  /* margin: 0 2em; */
   font-family: "Fresh Orange";
   font-weight: 400;
   line-height: 0.5;
   font-size: 1.5rem;
+  z-index: 1000;
 
   & h1,
   h2 {
