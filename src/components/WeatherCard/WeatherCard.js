@@ -49,10 +49,10 @@ const WeatherCard = ({ weatherData, image, description }) => {
           {description && <p>{description}</p>}
           {open && <WeatherDetails main={main} weather={weather} />}
           {!open && main && (
-            <StyledButton onClick={toggleDetails}>&#129043;</StyledButton>
+            <StyledButton onClick={toggleDetails}>&#8595;</StyledButton>
           )}
           {open && main && (
-            <StyledButton onClick={toggleDetails}>&#129041;</StyledButton>
+            <StyledButton onClick={toggleDetails}>&#8593;</StyledButton>
           )}
 
           {weather[0].icon === "" && <img src={lostImg} />}

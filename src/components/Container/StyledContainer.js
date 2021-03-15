@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   max-width: 100%;
   width: 100vw;
-  height: 1000px;
+  height: 1200px;
   flex-direction: column;
   justify-content: space-between;
   background-color: black;
@@ -21,4 +21,8 @@ export const StyledWrapper = styled.div`
   background-position: bottom;
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.3);
   overflow-x: hidden;
+
+  @media (min-width: 768px) {
+    height: 1100px;
+  }
 `;

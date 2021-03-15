@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledNav = styled.header`
-  height: 20%;
+  height: 10em;
   display: flex;
   flex-direction: column;
 `;
@@ -14,12 +14,12 @@ export const StyledTitle = styled.div`
   font-size: 1.5rem;
   z-index: 1000;
 
-  & h1,
+  /* & h1,
   h2 {
     display: block;
-  }
+  } */
 
   @media (min-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 `;

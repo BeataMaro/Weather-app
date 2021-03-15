@@ -48,7 +48,7 @@ export const StyledSVG = styled.img`
   }
   @media (min-width: 1200px) {
     &:nth-child(1) {
-      width: 15%;
+      width: 5%;
     }
     &:nth-child(2) {
       width: 10%;

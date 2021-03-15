@@ -49,6 +49,17 @@ export const StyledCardContainer = styled.div`
     transform: rotateY(180deg);
     border-radius: 40px;
   }
+
+  @media (max-width: 360px) {
+    width: 320px;
+  }
+
+  @media (max-width: 768px) {
+    &:hover ${StyledCard}, &:active ${StyledCard} {
+      transform: rotateY(180deg);
+      border-radius: 40px;
+    }
+  }
 `;
 
 export const StyledCardHeader = styled.div`
