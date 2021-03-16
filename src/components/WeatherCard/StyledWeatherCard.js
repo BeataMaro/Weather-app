@@ -80,6 +80,7 @@ export const StyledFront = styled.div`
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transform: rotateX(0deg);
   border-radius: 20px;
 
   & img {
