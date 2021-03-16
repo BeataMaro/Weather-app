@@ -4,8 +4,6 @@ export const StyledFooter = styled.footer`
   margin-top: auto;
   width: 100%;
   padding: 1em;
-  /* display: flex; */
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   text-align: center;
