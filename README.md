@@ -1,5 +1,5 @@
 
-# Weather-app
+# On Cloud Nine - the Weather App
 
 Access current weather for many places on Earth. 
 You can call by city or country name.
