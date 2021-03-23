@@ -14,11 +14,6 @@ export const StyledTitle = styled.div`
   font-size: 1.5rem;
   z-index: 1000;
 
-  /* & h1,
-  h2 {
-    display: block;
-  } */
-
   @media (min-width: 768px) {
     font-size: 1.8rem;
   }
