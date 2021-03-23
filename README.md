@@ -7,7 +7,7 @@ Hover the flip card to see more information.
 
 ## Demo: [On Cloud Nine - the weather app](https://on-cloud-nine.herokuapp.com/)
 
-Weather API: [https://api.unsplash.com](https://api.openweathermap.org)  
+Weather API: [https://api.openweathermap.org](https://api.openweathermap.org)  
 Images API: [https://api.unsplash.com](https://api.unsplash.com)
 
 <hr>
