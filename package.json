@@ -1,7 +1,8 @@
 {
+  "homepage": "https://beatamaro.github.io/weather-app/",
   "name": "weather-app",
   "version": "0.1.0",
-   "engines": {
+  "engines": {
     "node": "14.x",
     "npm": "7.x"
   },
@@ -21,9 +22,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-dotenv && react-scripts start", 
-    "build": "react-dotenv && react-scripts build", 
-    "serve": "react-dotenv && serve build", 
+    "start": "react-dotenv && react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-dotenv && react-scripts build",
+    "serve": "react-dotenv && serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -45,7 +48,13 @@
       "last 1 safari version"
     ]
   },
-   "react-dotenv": {
-    "whitelist": ["API_KEY", "ACCESS_KEY"]
+  "react-dotenv": {
+    "whitelist": [
+      "API_KEY",
+      "ACCESS_KEY"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }

@@ -42,7 +42,7 @@ const ErrorCard = ({ image }) => {
           <span>Please enter valid city name.</span>
         </StyledErrorFront>
         <StyledErrorBack>
-          <img src={image} />
+          <img src={image} alt='' />
           <img src={lostImg} alt='man holding a map' />
         </StyledErrorBack>
       </StyledErrorCard>

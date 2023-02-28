@@ -55,7 +55,7 @@ const WeatherCard = ({ weatherData, image, description }) => {
             <StyledButton onClick={toggleDetails}>&#8593;</StyledButton>
           )}
 
-          {weather[0].icon === "" && <img src={lostImg} />}
+          {weather[0].icon === "" && <img src={lostImg} alt='' />}
         </StyledBack>
       </StyledCard>
     </StyledCardContainer>
