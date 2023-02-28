@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Fresh Orange';
-    src: local('Fresh Orange Regular'), local('Fresh-Orange-Regular'),
-        url('FreshOrange.woff2') format('woff2'),
-        url('FreshOrange.woff') format('woff'),
-        url('FreshOrange.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-  }
