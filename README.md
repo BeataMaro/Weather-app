@@ -5,7 +5,7 @@ Access current weather for many places on Earth.
 You can call by city or country name.  
 Hover the flip card to see more information.
 
-## Demo: [On Cloud Nine - the weather app](https://on-cloud-nine.herokuapp.com/)
+## Demo: [On Cloud Nine - the weather app](https://beatamaro.github.io/Weather-app/)
 
 Weather API: [https://api.openweathermap.org](https://api.openweathermap.org)  
 Images API: [https://api.unsplash.com](https://api.unsplash.com)
